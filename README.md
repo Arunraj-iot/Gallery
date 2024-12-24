@@ -206,6 +206,12 @@ def gallery_view(request):
 ```
 # OUTPUT:
 ![Screenshot 2024-12-19 215317](https://github.com/user-attachments/assets/88138176-57c7-414d-bf7a-b4c7f89bc52c)
+![Screenshot 2024-12-24 201817](https://github.com/user-attachments/assets/e1bf1d21-a0f3-4d23-9439-45f9be4fedda)
+![Screenshot 2024-12-24 201842](https://github.com/user-attachments/assets/ba5b25e7-89fd-4c07-b0c2-60c328a2356c)
+
+
+
+
 
 # RESULT:
 The program for designing an interactive image gallery using HTML, CSS and JavaScript is executed successfully.
