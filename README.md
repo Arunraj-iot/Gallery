@@ -61,9 +61,8 @@ Publish the website in the given URL.
         }
 
         .gallery-item:hover img {
-            transform: scale(1.1);
+            transform: scale(1.5);
         }
-
         .modal {
             display: none;
             position: fixed;
@@ -77,38 +76,21 @@ Publish the website in the given URL.
             z-index: 1000;
         }
 
-        .modal-content {
-            position: relative;
+        .modal img {
             max-width: 90%;
-            max-height: 80%;
-        }
-
-        .modal-content img {
-            width: 100%;
-            height: auto;
+            max-height: 90%;
+            border: 4px solid white;
             border-radius: 10px;
         }
 
-        .modal-close {
+        .modal span {
             position: absolute;
-            top: 10px;
-            right: 10px;
-            background-color: #fff;
-            border: none;
-            border-radius: 50%;
-            width: 30px;
-            height: 30px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            top: 20px;
+            right: 40px;
+            font-size: 30px;
+            color: white;
             cursor: pointer;
-            font-size: 18px;
             font-weight: bold;
-        }
-
-        .modal-close:hover {
-            background-color: #f00;
-            color: #fff;
         }
     </style>
 </head>
@@ -118,7 +100,7 @@ Publish the website in the given URL.
     <br>
 
     <h1 style="text-align: center; margin-top: 20px; color: #fff;">Interactive Photo Gallery</h1>
-    <h3 style="text-align: center; margin-top: 20px; color: #fff;">ARUNRAJ  (24901014)</h3>
+    <h3 style="text-align: center; margin-top: 20px; color: #fff;">ARUNRAJ R(24901014)</h3>
      <br>
      <br>
      <br>
@@ -127,60 +109,49 @@ Publish the website in the given URL.
 
     <div class="gallery">
         <div class="gallery-item" data-image="image1.jpg">
-            <img src="image 2.png" alt="Photo 1">
+            <img src="image 2.png" alt="Photo 1" onclick="openModal(this)">
         </div>
         <div class="gallery-item" data-image="image2.jpg">
-            <img src="image 3.webp" alt="Photo 2">
+            <img src="image 3.webp" alt="Photo 2" onclick="openModal(this)">
         </div>
         <div class="gallery-item" data-image="image3.jpg">
-            <img src="image 4.jpg" alt="Photo 3">
+            <img src="image 4.jpg" alt="Photo 3" onclick="openModal(this)">
         </div>
         <div class="gallery-item" data-image="image3.jpg">
-          <img src="image 5.avif" alt="Photo 3">
+          <img src="image 5.avif" alt="Photo 3" onclick="openModal(this)">
       </div>
       <div class="gallery-item" data-image="image3.jpg">
-        <img src="image 6.webp" alt="Photo 3">
+        <img src="image 6.webp" alt="Photo 3" onclick="openModal(this)">
     </div>
     <div class="gallery-item" data-image="image3.jpg">
-      <img src="image 7.png" alt="Photo 3">
+      <img src="image 7.png" alt="Photo 3" onclick="openModal(this)">
   </div>
         
     </div>
 
-    <div class="modal" id="modal">
-        <div class="modal-content">
-            <button class="modal-close" id="closeModal">&times;</button>
-            <img id="modalImage" src="" alt="">
-        </div>
+    <div class="modal" id="imageModal">
+        <span onclick="closeModal()">&times;</span>
+        <img id="modalImage" src="" alt="">
     </div>
 
     <script>
-        const galleryItems = document.querySelectorAll('.gallery-item');
-        const modal = document.getElementById('modal');
-        const modalImage = document.getElementById('modalImage');
-        const closeModal = document.getElementById('closeModal');
-
-        galleryItems.forEach(item => {
-            item.addEventListener('click', () => {
-                const imgSrc = item.getAttribute('data-image');
-                modalImage.src = imgSrc;
-                modal.style.display = 'flex';
-            });
-        });
-
-        closeModal.addEventListener('click', () => {
+        function openModal(image) 
+        {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            modal.style.display = 'flex';
+            modalImg.src = image.src;
+        }
+        function closeModal() 
+        {
+            const modal = document.getElementById('imageModal');
             modal.style.display = 'none';
-        });
-
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                modal.style.display = 'none';
-            }
-        });
+        }
     </script>
 
 </body>
 </html>
+
 ```
 ```
 models.py
@@ -206,8 +177,12 @@ def gallery_view(request):
 ```
 # OUTPUT:
 ![Screenshot 2024-12-19 215317](https://github.com/user-attachments/assets/88138176-57c7-414d-bf7a-b4c7f89bc52c)
-![Screenshot 2024-12-24 201817](https://github.com/user-attachments/assets/e1bf1d21-a0f3-4d23-9439-45f9be4fedda)
-![Screenshot 2024-12-24 201842](https://github.com/user-attachments/assets/ba5b25e7-89fd-4c07-b0c2-60c328a2356c)
+![Screenshot 2024-12-27 140553](https://github.com/user-attachments/assets/ede5929c-8e91-43d0-9a3c-7cd9ebfdbe11)
+![Screenshot 2024-12-27 140610](https://github.com/user-attachments/assets/cea82e4e-b1da-4b9a-a80c-d4c14ce37dd3)
+![Screenshot 2024-12-27 140650](https://github.com/user-attachments/assets/e4ec02a3-6e0f-4a6b-ae15-fc37b1d8486f)
+![Screenshot 2024-12-27 140710](https://github.com/user-attachments/assets/73615073-3c31-4481-b686-27c359f0a303)
+![Screenshot 2024-12-27 140743](https://github.com/user-attachments/assets/ee62ac21-4278-4334-907f-9c6b0f2b0171)
+
 
 
 
